@@ -59,6 +59,9 @@ class Histogram {
 
 
 async function histogramFromStdin() {
+    //The process.stdin property returns a stream connected to stdin (fd 0). 
+    //It is a net.Socket (which is a Duplex stream) unless fd 0 refers to a file, 
+    //in which case it is a Readable stream.
     process.stdin.setEncoding("utf-8");
     let histogram = new Histogram();
     for await (let chunk of process.stdin) {
